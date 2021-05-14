@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12 col-sm-2 col-md-4"></div>
+    <div class="col-12 col-sm-8 col-md-4 my-5">
+
+        <h1 class="my-4">Register Here</h1>
+
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group d-flex flex-column justify-content-center">
+                <fieldset class="my-2">
+                    {{ form.fname.label }}
+                    {{ form.fname(class='form-control', placeholder='John Smith') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.lname.label }}
+                    {{ form.lname(class='form-control', placeholder='John Smith') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.username.label }}
+                    {{ form.username(class='form-control', placeholder='Username') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.email.label }}
+                    {{ form.email(class='form-control', placeholder='someone@example.com') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.password.label }}
+                    {{ form.password(class='form-control', placeholder='Password') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.confirm_pass.label }}
+                    {{ form.confirm_pass(class='form-control', placeholder='Confirm Password') }}
+                </fieldset>
+                {{ form.submit(class='btn btn-outline-primary my-3') }}
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-sm-2 col-md-4"></div>
+</div>
+
+{% endblock content %}

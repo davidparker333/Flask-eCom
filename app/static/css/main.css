@@ -1,0 +1,35 @@
+.nav-img {
+    height:40px;
+    width: auto;
+    margin-right: 15px;
+}
+
+li {
+    list-style-type: none
+}
+
+.banner-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.banner-card {
+    display: flex;
+    position: relative;
+    bottom: 55%;
+    left: 10%;
+}
+
+.best-seller {
+    position: relative;
+    bottom: 75px;
+}
+
+.footer {
+    background-color: coral;
+}
+
+#footer-image {
+    width: 280px;
+    height: auto;
+}
