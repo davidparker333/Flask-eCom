@@ -1,7 +1,7 @@
 from . import bp as main
 from flask import render_template
 
-@main.routes('/')
+@main.route('/')
 def index():
     title = 'Home'
 
