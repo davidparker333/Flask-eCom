@@ -25,16 +25,13 @@
             <i class="fas fa-user"></i>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
+              <li><a class="dropdown-item" href="{{ url_for('auth.logout') }}">Logout</a></li>
             </ul>
           </li>
         </form>
         {% else %}
         <form class="d-flex">
-            <a href="#"><button type="button" class="btn btn-outline-primary mx-1">Login</button></a>
+            <a href="{{ url_for('auth.login') }}"><button type="button" class="btn btn-outline-primary mx-1">Login</button></a>
             <a href="{{ url_for('auth.register') }}"><button type="button" class="btn btn-outline-primary mx-1">Register Now</button></a>
         </form>
         {% endif %}

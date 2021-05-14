@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12 col-sm-2 col-md-4"></div>
+    <div class="col-12 col-sm-8 col-md-4 my-5">
+
+        <h1 class="my-4">Login Here</h1>
+
+        <form action="" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group d-flex flex-column justify-content-center">
+                <fieldset class="my-2">
+                    {{ form.username.label }}
+                    {{ form.username(class='form-control', placeholder='Username') }}
+                </fieldset>
+                <fieldset class="my-2">
+                    {{ form.password.label }}
+                    {{ form.password(class='form-control', placeholder='Password') }}
+                </fieldset>
+                <fieldset>
+                    {{ form.remember_me(class='check-input') }}
+                    {{ form.remember_me.label(class='form-check-label') }}
+                </fieldset>
+                {{ form.submit(class='btn btn-success my-3') }}
+            </div>
+        </form>
+    </div>
+    <div class="col-12 col-sm-2 col-md-4"></div>
+</div>
+
+{% endblock content %}

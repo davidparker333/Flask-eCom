@@ -41,3 +41,30 @@ def register():
         return redirect(url_for('main.index'))
     
     return render_template('register.html', title=title, form=form)
+
+@auth.route('/login', methods=['GET', 'POST'])
+def login():
+    title = 'Login'
+    form = LoginForm()
+
+    if request.method == 'POST' and form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+
+        user = User.query.filter_by(username=username).first()
+
+        if user is None or not check_password_hash(user.password, password):
+            flash("Incorrect username or password. Please try again", 'danger')
+            return redirect(url_for('auth.login'))
+
+        login_user(user, remember=form.remember_me.data)
+        flash("You have successfully logged in", 'success')
+        return redirect(url_for('main.index'))
+
+    return render_template('login.html', form=form, title=title)
+
+@auth.route('/logout')
+def logout():
+    logout_user()
+    flash("You have successfully been logged out", 'warning')
+    return redirect(url_for('main.index'))
