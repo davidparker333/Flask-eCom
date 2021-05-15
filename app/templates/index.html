@@ -12,7 +12,7 @@
             <div class="card-body">
               <h4 class="card-title my-2">Your meals</h4>
               <h5 class="card-text my-2">Seasoned perfectly.</h5>
-              <a href="#" class="btn btn-outline-primary my-2">Shop Now</a>
+              <a href="{{ url_for('shop.shop') }}" class="btn btn-outline-primary my-2">Shop Now</a>
             </div>
           </div>
     </div>
@@ -30,85 +30,21 @@
 <!-- Product Cards -->
 
 <div class="row mb-5">
-    <div class="col-12 d-flex flex-row justify-content-around align-items-center">
+    <div class="col-12 d-flex flex-row justify-content-around mb-3">
+      {% for prod in top_4 %}
         <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+            <img src="{{ prod.image }}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-primary">Go somewhere</a>
+              <h5 class="card-title">{{ prod.name }}</h5>
+              <p class="card-text">{{ prod.description }}</p>
+              <a href="#" class="btn btn-outline-primary">${{ prod.amount }}</a>
             </div>
           </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-primary">Go somewhere</a>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-primary">Go somewhere</a>
-            </div>
-          </div>
+          {% endfor %}
     </div>
 </div>
 
-<!-- Footer -->
-
-<div class="row footer mt-5 pt-4 pb-4 d-flex flex-row justify-content-around">
-    <div class="col12 col-ms-6 col-md-3 d-flex flex-row align-items-center justify-content-center">
-        <img src="https://res.cloudinary.com/dbqwjxuhv/image/upload/v1621029241/snip_qaobvi.png" alt="A Map" id="footer-image">
-    </div>
-    <div class="col12 col-ms-6 col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-              Visit Us!
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Portland, ME USA</li>
-              <li class="list-group-item">shopping@thyme.com</li>
-              <li class="list-group-item">Call US: (207)560-288</li>
-            </ul>
-          </div>
-    </div>
-    <div class="col12 col-ms-6 col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-                You can find our herbs at...
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Joey's Grocery</li>
-              <li class="list-group-item">The Deli on Main</li>
-              <li class="list-group-item">Cherie's Bistro</li>
-            </ul>
-          </div>
-    </div>
-    <div class="col12 col-ms-6 col-md-3">
-        <div class="card" style="width: 18rem;">
-            <div class="card-header">
-              Follow Us!
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Facebook</li>
-              <li class="list-group-item">Twitter</li>
-              <li class="list-group-item">Instagram</li>
-            </ul>
-          </div>
-    </div>
-</div>
+{% include 'footer.html' %}
 
 
 

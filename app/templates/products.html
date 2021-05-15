@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row my-5">
+    <div class="col-6 left-col">
+        <h2>Best Sellers</h2>
+        <hr>
+        <p>Shopping Thyme has spent over 60 years curating a global network of premium spice growers to offer unrivaled quality, selection, and freshness. Over this time, the spices in this collection represent the spices our customers return to over and over again. If there's one spice you should buy from Shopping Thyme, make it our spicy and sweet Saigon cinnamon. After that, try our expertly-crafted proprietary spice blends like Back of the Yards, Lake Shore Drive, and Gateway to the North which have become indispensable kitchen essentials for nearly all of our customers.</p>
+    </div>
+    <div class="col-6 my-5 d-flex align-items-center">
+        <img src="https://res.cloudinary.com/dbqwjxuhv/image/upload/v1621036967/spices_ex4ogb.jpg" class="center-image">
+    </div>
+</div>
+
+<div class="row">
+    <hr>
+</div>
+
+<div class="row">
+
+    {% for product in products %}
+
+    <div class="col-12 col-sm-6 col-md-3 mt-3">
+        <div class="card height-limit" style="width: 18rem;">
+            <img src="{{ product.image }}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">{{ product.description }}</p>
+              <a href="#" class="btn btn-outline-primary">${{ product.amount }}</a>
+            </div>
+          </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% include 'footer.html' %}
+{% endblock content %}

@@ -26,10 +26,24 @@ li {
 }
 
 .footer {
-    background-color: coral;
+    background-color: #beb3a1;
 }
 
 #footer-image {
     width: 280px;
     height: auto;
+}
+
+.center-image {
+    display: block;
+    margin: auto;
+}
+
+.left-col {
+    position: relative;
+    top: 5rem;
+}
+
+.height-limit {
+    height: 650px;
 }
