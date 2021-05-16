@@ -27,7 +27,7 @@
             <div class="card-body">
                 <a href="{{ url_for('shop.product_detail', product_sku = product.sku)}}"><h5 class="card-title">{{ product.name }}</h5></a>
               <p class="card-text">{{ product.description }}</p>
-              <a href="#" class="btn btn-outline-primary">${{ product.amount }}</a>
+              <a href="{{ url_for('shop.add_to_cart', product_sku = product.sku) }}" class="btn btn-outline-primary">${{ product.amount }}</a>
             </div>
           </div>
     </div>

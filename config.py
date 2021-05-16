@@ -1,4 +1,5 @@
 import os
+import stripe
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Config():
@@ -14,3 +15,5 @@ class Config():
     MAIL_USERNAME = 'apikey'
     MAIL_PASSWORD = os.environ.get('SENDGRID_API_KEY')
     MAIL_DEFAULT_SENDER = os.environ.get('MAIL_DEFAULT_SENDER')
+    stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+    stripe_publishable_key= os.environ.get('STRIPE_PUBLISHABLE_KEY')

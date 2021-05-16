@@ -1,5 +1,7 @@
 alembic==1.6.2
 blinker==1.4
+certifi==2020.12.5
+chardet==4.0.0
 click==7.1.2
 dnspython==2.1.0
 email-validator==1.1.2
@@ -11,7 +13,7 @@ Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.14.3
 greenlet==1.1.0
 gunicorn==20.1.0
-idna==3.1
+idna==2.10
 itsdangerous==1.1.0
 Jinja2==2.11.3
 Mako==1.1.4
@@ -20,7 +22,10 @@ psycopg2==2.8.6
 python-dateutil==2.8.1
 python-dotenv==0.17.1
 python-editor==1.0.4
+requests==2.25.1
 six==1.16.0
 SQLAlchemy==1.4.15
+stripe==2.56.0
+urllib3==1.26.4
 Werkzeug==1.0.1
 WTForms==2.3.3

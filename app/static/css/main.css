@@ -60,3 +60,8 @@ a {
     text-decoration: none;
     color: black;
 }
+
+.cart-img {
+    width: 300px;
+    height: auto;
+}

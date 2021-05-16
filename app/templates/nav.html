@@ -18,7 +18,7 @@
 
         {% if current_user.is_authenticated %}
         <form class="d-flex">
-          <button type="button" class="btn btn-light"><i class="fas fa-shopping-cart" class="cart"></i></button>
+          <a href="{{ url_for('shop.show_cart') }}"><button type="button" class="btn btn-light"><i class="fas fa-shopping-cart" class="cart"></i></button></a>
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

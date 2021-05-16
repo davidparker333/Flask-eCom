@@ -7,6 +7,7 @@ from flask_login import login_user, logout_user
 from werkzeug.security import check_password_hash
 from .models import User
 from .forms import UserInfoForm, LoginForm
+from app.blueprints.shop.models import Cart
 
 @auth.route('/register', methods=['GET', 'POST'])
 def register():
@@ -32,6 +33,11 @@ def register():
         new_user = User(fname, lname, username, email, password)
         db.session.add(new_user)
         db.session.commit()
+
+        cart = Cart(new_user.id)
+        db.session.add(cart)
+        db.session.commit()
+
         flash(f"Thank you {fname}. You have successfully registered!", 'success')
 
         msg = Message('Thank you for signing up for Shopping Thyme', recipients=[email])

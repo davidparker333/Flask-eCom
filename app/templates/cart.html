@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+
+    <h1 class="my-4 text-center">My Cart</h1>
+
+</div>
+    
+{% for product in products %}
+<div class="row my-5">
+    <div class="col-6 d-flex justify-content-end">
+        <img src="{{ product.image }}" class="cart-img">
+    </div>
+    <div class="col-6 d-flex justify-content-start">
+        <div class="card w-75">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p>{{ product.description }}</p>
+              <p class="card-text">${{ product.amount }}</p>
+              <a href="{{ url_for('shop.remove_from_cart', product_id = product.id) }}" class="btn btn-outline-danger">Remove from cart</a>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endfor %}
+
+<hr>
+
+<div class="row">
+
+    <div class="col-12 d-flex flex-row justify-content-end">
+        <h5>Subtotal: {{ subtotal }}</h5>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-12 d-flex flex-row justify-content-end">
+        <h5>Tax: {{ tax }}</h5>
+    </div>
+
+</div>
+
+<div class="row mb-2">
+
+    <div class="col-12 d-flex flex-row justify-content-end">
+        <h5>Total: {{ total }}</h5>
+    </div>
+
+</div>
+
+<div class="row mb-5">
+
+    <div class="col-12 d-flex flex-row justify-content-end">
+        <a href="{{ url_for('shop.remove_all') }}"><button type="button" class="btn btn-outline-danger mx-2">Remove all from cart</button></a>
+        <button type="button" class="btn btn-primary mx-2">Checkout</button>
+    </div>
+
+</div>
+    
+
+{% endblock content %}

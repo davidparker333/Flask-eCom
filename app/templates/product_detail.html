@@ -13,7 +13,7 @@
             <h2 class="card-header">{{ prod.name }}</h2>
             <div class="card-body">
               <p class="card-text card-description">{{ prod.description }} <br><br>Founded in 1957, Shopping Thyme is a purveyor of the finest spices, herbs, blends, and extracts to customers ranging from renowned Michelin-star chefs to home cooks everywhere. We’ve spent over 60 years curating our global network of premium growers and distributors in order to offer our customers unrivaled quality and selection. Our products range from essential and rare spice varietals to proprietary rubs and blends.</p>
-              <a href="#" class="btn btn-outline-primary">${{ prod.amount }}</a>
+              <a href="{{ url_for('shop.add_to_cart', product_sku = prod.sku) }}" class="btn btn-outline-primary">${{ prod.amount }}</a>
             </div>
           </div>
     </div>
@@ -35,7 +35,7 @@
             <div class="card-body">
                 <a href="{{ url_for('shop.product_detail', product_sku = ele.sku)}}"><h5 class="card-title">{{ ele.name }}</h5></a>
               <p class="card-text">{{ ele.description }}</p>
-              <a href="#" class="btn btn-outline-primary">${{ ele.amount }}</a>
+              <a href="{{ url_for('shop.add_to_cart', product_sku = ele.sku) }}" class="btn btn-outline-primary">${{ ele.amount }}</a>
             </div>
           </div>
           {% endfor %}
