@@ -47,3 +47,16 @@ li {
 .height-limit {
     height: 650px;
 }
+
+.spotlight-card {
+    max-width: 75%;
+}
+
+.card-description {
+    font-size: 18px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}

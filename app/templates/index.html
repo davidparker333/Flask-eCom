@@ -12,7 +12,7 @@
             <div class="card-body">
               <h4 class="card-title my-2">Your meals</h4>
               <h5 class="card-text my-2">Seasoned perfectly.</h5>
-              <a href="{{ url_for('shop.shop') }}" class="btn btn-outline-primary my-2">Shop Now</a>
+              <a href="{{ url_for('shop._shop') }}" class="btn btn-outline-primary my-2">Shop Now</a>
             </div>
           </div>
     </div>
@@ -33,9 +33,9 @@
     <div class="col-12 d-flex flex-row justify-content-around mb-3">
       {% for prod in top_4 %}
         <div class="card" style="width: 18rem;">
-            <img src="{{ prod.image }}" class="card-img-top" alt="...">
+            <a href="{{ url_for('shop.product_detail', product_sku = prod.sku)}}"><img src="{{ prod.image }}" class="card-img-top" alt="..."></a>
             <div class="card-body">
-              <h5 class="card-title">{{ prod.name }}</h5>
+              <a href="{{ url_for('shop.product_detail', product_sku = prod.sku)}}"><h5 class="card-title">{{ prod.name }}</h5></a>
               <p class="card-text">{{ prod.description }}</p>
               <a href="#" class="btn btn-outline-primary">${{ prod.amount }}</a>
             </div>

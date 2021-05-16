@@ -5,6 +5,6 @@ from flask import render_template
 @main.route('/')
 def index():
     title = 'Home'
-    top_4 = Product.query.limit(4).all()
+    top_4 = Product.query.limit(4).distinct(Product.sku)
 
     return render_template('index.html', title=title, top_4=top_4)
