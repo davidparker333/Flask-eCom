@@ -56,7 +56,11 @@
 
     <div class="col-12 d-flex flex-row justify-content-end">
         <a href="{{ url_for('shop.remove_all') }}"><button type="button" class="btn btn-outline-danger mx-2">Remove all from cart</button></a>
-        <button type="button" class="btn btn-primary mx-2">Checkout</button>
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-description="Shopping Thyme"
+            data-amount="{{ total }}"
+            data-locale="auto"></script>
     </div>
 
 </div>

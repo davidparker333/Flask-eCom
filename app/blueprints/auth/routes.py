@@ -14,32 +14,25 @@ def register():
     title = 'Register'
     form = UserInfoForm()
     if request.method == 'POST':
-
         if not form.validate_on_submit():
             flash("Hmm, something in your info isn't right. Please try again")
             return redirect(url_for('register'))
-
         username = form.username.data
         email = form.email.data
         fname = form.fname.data
         lname = form.lname.data
         password = form.password.data
-
         existing_user = User.query.filter((User.username == username) | (User.email == email)).all()
         if existing_user:
             flash("That username / email is already taken. Please try again or sign in if you have an account", 'warning')
             return redirect(url_for('register'))
-        
         new_user = User(fname, lname, username, email, password)
         db.session.add(new_user)
         db.session.commit()
-
         cart = Cart(new_user.id)
         db.session.add(cart)
         db.session.commit()
-
         flash(f"Thank you {fname}. You have successfully registered!", 'success')
-
         msg = Message('Thank you for signing up for Shopping Thyme', recipients=[email])
         msg.body = f"Dear {fname}, the team at Shopping Thyme would like to thank you for registering for our site! Please enjoy our premium selection of spices and herbs."
         mail.send(msg)
@@ -52,17 +45,13 @@ def register():
 def login():
     title = 'Login'
     form = LoginForm()
-
     if request.method == 'POST' and form.validate_on_submit():
         username = form.username.data
         password = form.password.data
-
         user = User.query.filter_by(username=username).first()
-
         if user is None or not check_password_hash(user.password, password):
             flash("Incorrect username or password. Please try again", 'danger')
             return redirect(url_for('auth.login'))
-
         login_user(user, remember=form.remember_me.data)
         flash("You have successfully logged in", 'success')
         return redirect(url_for('main.index'))
